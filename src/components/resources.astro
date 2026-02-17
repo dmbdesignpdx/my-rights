@@ -1,0 +1,32 @@
+---
+import { Card } from './card';
+
+import { type Translations } from "@/i18n"
+
+interface Props {
+  content: Translations["resources"];
+}
+
+const { content } = Astro.props;
+---
+
+<section
+  id="resources"
+  class="wrap pt-16"
+>
+  <h3 class="highlight text-3xl font-bold">
+    {content.heading}
+  </h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+
+    {content.orgs.map(org => (
+      <Card
+        heading={org.heading}
+        copy={org.copy}
+        link={org.link}
+        label={org.label}
+      />
+    ))}
+
+  </div>
+</section>

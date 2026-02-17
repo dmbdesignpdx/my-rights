@@ -1,0 +1,45 @@
+---
+import { type Translations } from "@/i18n";
+
+
+interface Props {
+  content: Translations["footer"];
+}
+
+const { content } = Astro.props;
+---
+
+<footer class="bg-foreground mt-20 py-10 text-background">
+  <div class="wrap flex flex-col gap-3">
+    <p class="mt-4">{content.copy}</p>
+    <address class="flex gap-3">
+
+      {content.links.map(link => (
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noreferrer noopener"
+          class="text-pink-200 underline underline-offset-2"
+        >
+          {link.label}
+        </a>
+      ))}
+
+    </address>
+    <p>
+      <small>{content.disclaimer}</small>
+    </p>
+    <p>
+      {content.repo.text}
+      {" "}
+      <a
+        href={content.repo.link}
+        target="_blank"
+        rel="noreferrer noopener"
+        class="text-pink-200 underline underline-offset-2"
+      >
+        {content.repo.link}
+      </a>
+    </p>
+  </div>
+</footer>

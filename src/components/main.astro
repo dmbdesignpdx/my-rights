@@ -1,0 +1,41 @@
+---
+import { getEntry, render } from 'astro:content';
+import Hero from "@/components/hero.astro";
+import Nav from "@/components/nav.astro";
+import { type Language } from "@/constants/lang";
+import { getTranslations } from "@/i18n";
+import Resources from './resources.astro';
+import Footer from './footer.astro';
+
+
+interface Props {
+  locale: Language;
+}
+
+const { locale } = Astro.props;
+const entry = await getEntry("content", locale);
+
+if (!entry) return null;
+
+const { Content, headings } = await render(entry);
+const t = getTranslations(locale);
+const links = headings
+  .filter(item => item.depth === 2)
+  .map(item => ({
+    label: item.text,
+    id: item.slug,
+    href: "#" + item.slug,
+  }));
+---
+
+<Hero
+  heading={t.hero.heading}
+  subheading={t.hero.subheading}
+/>
+<Nav locale={locale} links={links} />
+<main class="prose prose-zinc prose-lg prose-p:in-prose-blockquote:before:content-none prose-figcaption:m-0 prose-blockquote:not-italic prose-blockquote:border-purple-300 prose-blockquote:text-black max-w-3xl wrap"
+>
+  <Content />
+</main>
+<Resources content={t.resources} />
+<Footer content={t.footer} />

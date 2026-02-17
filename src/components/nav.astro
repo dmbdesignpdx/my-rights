@@ -1,0 +1,29 @@
+---
+import { Select } from "@/components/select";
+import { SiteDrawer } from "@/components/drawer";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+
+interface Props {
+  locale: string;
+  links: { label: string, href: string, id: string }[]
+}
+
+const { locale, links } = Astro.props;
+
+const options = [
+  { id: "en", label: "EN", value: getRelativeLocaleUrl("en", "/") },
+  { id: "es", label: "ES", value: getRelativeLocaleUrl("es", "/") },
+];
+---
+
+<nav class="fixed w-full bg-background z-10 py-1 top-0 border-b border-gray-200">
+  <div class="wrap flex justify-between items-center">
+    <SiteDrawer links={links} client:load />
+    <Select 
+      locale={locale} 
+      options={options}
+      client:load 
+    />
+  </div>
+</nav>

@@ -1,0 +1,8 @@
+[build]
+base = "/"
+publish = "dist"
+command = "bun run build"
+
+[environment]
+NODE_VERSION = "24.13.0"
+BUN_VERSION = "1.3.6"

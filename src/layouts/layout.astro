@@ -1,0 +1,71 @@
+---
+import { type Language } from "@/constants/lang";
+import { OpenGraph, AppleApp, Meta } from "@/constants/meta";
+import { getTranslations } from "@/i18n";
+import '../styles/global.css';
+
+interface Props {
+  locale: Language;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+---
+
+<!doctype html>
+<html lang={locale}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preload" href="/fonts/public-sans-800.woff2" as="font" crossorigin type="font/woff2"/>
+		<title>{t.meta.title}</title>
+		<meta name="description" content={t.meta.description} />
+    <meta name="theme-color" content={Meta.THEME_COLOR}/>
+    <meta name="color-scheme" content="only light"/>
+    <meta name="robots" content="index, follow"/>
+    <link rel="canonical" hreflang="en" href={Meta.BASE}/>
+    <link rel="alternate" hreflang="es" href={Meta.BASE + "/es"}/>
+    <link rel="icon" href="/icon.png"/>
+    <meta property="og:title" content={OpenGraph.TITLE}/>
+    <meta property="og:description" content={OpenGraph.DESC}/>
+    <meta property="og:url" content={OpenGraph.URL}/>
+    <meta property="og:site_name" content={OpenGraph.SITE_NAME}/>
+    <meta property="og:locale" content={OpenGraph.LOCALE}/>
+    <meta property="og:image" content={OpenGraph.Image.URL}/>
+    <meta property="og:image:width" content={OpenGraph.Image.WIDTH}/>
+    <meta property="og:image:height" content={OpenGraph.Image.HEIGHT}/>
+    <meta property="og:image:alt" content={OpenGraph.Image.ALT}/>
+    <meta property="og:type" content="website"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content={OpenGraph.TITLE}/>
+    <meta name="twitter:description" content={OpenGraph.DESC}/>
+    <meta name="twitter:image" content={OpenGraph.Image.URL}/>
+    <meta name="twitter:image:width" content={OpenGraph.Image.WIDTH}/>
+    <meta name="twitter:image:height" content={OpenGraph.Image.HEIGHT}/>
+    <meta name="twitter:image:alt" content={OpenGraph.Image.ALT}/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <link rel="apple-touch-icon" href="/apple-icon.png"/>
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-title" content={AppleApp.TITILE}/>
+    <link rel="apple-touch-startup-image" href={AppleApp.IMAGE}/>
+    <meta name="apple-mobile-web-app-status-bar-style" content={AppleApp.BAR_STYLE}/>
+    <meta name="author" content={Meta.Author.NAME}/>
+		<link rel="author" href={Meta.Author.URL}/>
+	</head>
+	<body>
+		<slot />
+	</body>
+	<script>
+	  // Listen for hash changes and scroll to the corresponding element
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const target = document.querySelector(hash);
+        if (target) {
+          target.scrollIntoView();
+        }
+      }
+    });
+  </script>
+</html>
