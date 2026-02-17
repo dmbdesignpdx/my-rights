@@ -1,0 +1,23 @@
+/index.php           /   301
+
+/es/*          /es/404   404
+
+/api               /404  410
+/admin             /404  410
+/wordpress/*       /404  410
+/.env              /404  410
+/.git/config       /404  410
+/.aws/credentials  /404  410
+/web.config        /404  410
+/wp-login.php      /404  410
+/wp-admin          /404  410
+/xmlrpc.php        /404  410
+/wp-config.php     /404  410
+/wp-content/*      /404  410
+/phpmyadmin        /404  410
+/pma               /404  410
+/mysql             /404  410
+/administrator     /404  410
+/backup.sql        /404  410
+/db.zip            /404  410
+/setup.php         /404  410

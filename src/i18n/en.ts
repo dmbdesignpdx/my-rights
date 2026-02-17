@@ -66,6 +66,7 @@ export const en = {
   notFound: {
     heading: "404 - Page Not Found",
     copy: "The page you are looking for does not exist.",
+    label: "Back to safety",
   },
   label: {
     menu: "Menu",

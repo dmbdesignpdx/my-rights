@@ -1,0 +1,54 @@
+---
+import { type Language } from "@/constants/lang";
+
+
+interface Props {
+  locale: Language;
+  title: string;
+}
+
+const { locale, title } = Astro.props;
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, follow" />
+    <title>{title}</title>
+    <style is:inline>
+      * { box-sizing: border-box; margin: 0; }
+      html {
+        font-size: 100%;
+        font-family: system-ui, sans-serif;
+      }
+      body { 
+        height: 100vh; 
+        width: 100vw; 
+        display: grid; 
+        place-items: center; 
+        place-content: center; 
+        gap: 1.5rem; 
+        text-align: center;
+        font-size: 1.125rem;
+      }
+      h1 { 
+        font-size: 2rem;
+        font-weight: bold;
+      }
+      a {
+        background-color: oklch(62.7% 0.27 303.9);
+        display: inline-flex;
+        padding: 1rem;
+        border-radius: 6px;
+        color: #fff;
+        text-decoration: none;
+      }
+      a:hover { background-color: oklch(62.7% 0.27 303.9 / 0.75); }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
