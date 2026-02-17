@@ -18,7 +18,7 @@ interface Props {
 export function Select({ locale, options }: Props) {
   const getCurrent = (id: string) => {
     return options.find((item) => item.id === id);
-  }
+  };
 
   const current = getCurrent(locale);
 
@@ -52,5 +52,5 @@ export function Select({ locale, options }: Props) {
         </SelectGroup>
       </SelectContent>
     </ChakraSelect>
-  )
+  );
 }

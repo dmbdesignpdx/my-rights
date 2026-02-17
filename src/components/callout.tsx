@@ -20,7 +20,7 @@ export function Callout({ type, text }: CalloutProps) {
     <ShadcnAlert
       className={cn(
         info ? "bg-blue-50 text-blue-700" : "bg-amber-50 text-amber-700",
-        "tracking-wide"
+        "tracking-wide",
       )}
     >
       {info ? <PiLightbulb aria-hidden="true" /> : <PiWarning aria-hidden="true" />}

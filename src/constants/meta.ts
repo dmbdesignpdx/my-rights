@@ -12,7 +12,7 @@ export const Meta = {
   BKG_COLOR: "#FFFFFF",
   Author: {
     NAME: "Daniel Blake",
-    URL: "https://danielblake.dev"
+    URL: "https://danielblake.dev",
   },
 } as const;
 
@@ -25,7 +25,7 @@ export const OpenGraph = {
     URL: Url.BASE + "/opengraph-image.png",
     WIDTH: "1200",
     HEIGHT: "630",
-    ALT: "Know your rights. Protect and empower yourself."
+    ALT: "Know your rights. Protect and empower yourself.",
   },
   LOCALE: DEFAULT_CODE,
 } as const;

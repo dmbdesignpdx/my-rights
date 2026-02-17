@@ -23,7 +23,7 @@ interface Props {
 
 export function SiteDrawer({ links }: Props) {
   const [open, setOpen] = useState(false);
-  
+
   return (
     <Drawer
       direction="left"
@@ -80,5 +80,5 @@ export function SiteDrawer({ links }: Props) {
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
-  )
+  );
 }

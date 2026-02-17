@@ -2,7 +2,7 @@
 import { type Language } from "@/constants/lang";
 import { OpenGraph, AppleApp, Meta } from "@/constants/meta";
 import { getTranslations } from "@/i18n";
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   locale: Language;
@@ -14,12 +14,12 @@ const t = getTranslations(locale);
 
 <!doctype html>
 <html lang={locale}>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="preload" href="/fonts/public-sans-800.woff2" as="font" crossorigin type="font/woff2"/>
-		<title>{t.meta.title}</title>
-		<meta name="description" content={t.meta.description} />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="/fonts/public-sans-800.woff2" as="font" crossorigin type="font/woff2"/>
+    <title>{t.meta.title}</title>
+    <meta name="description" content={t.meta.description} />
     <meta name="theme-color" content={Meta.THEME_COLOR}/>
     <meta name="color-scheme" content="only light"/>
     <meta name="robots" content="index, follow"/>
@@ -51,14 +51,14 @@ const t = getTranslations(locale);
     <link rel="apple-touch-startup-image" href={AppleApp.IMAGE}/>
     <meta name="apple-mobile-web-app-status-bar-style" content={AppleApp.BAR_STYLE}/>
     <meta name="author" content={Meta.Author.NAME}/>
-		<link rel="author" href={Meta.Author.URL}/>
-	</head>
-	<body>
-		<slot />
-	</body>
-	<script>
-	  // Listen for hash changes and scroll to the corresponding element
-    window.addEventListener('hashchange', () => {
+    <link rel="author" href={Meta.Author.URL}/>
+  </head>
+  <body>
+    <slot />
+  </body>
+  <script>
+    // Listen for hash changes and scroll to the corresponding element
+    window.addEventListener("hashchange", () => {
       const hash = window.location.hash;
       if (hash) {
         const target = document.querySelector(hash);
