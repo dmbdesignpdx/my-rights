@@ -9,6 +9,7 @@ export const en = {
     subheading: "Empower and protect yourself.",
   },
   group: {
+    id: "organizations",
     heading: "Organizations",
     orgs: [
       {
