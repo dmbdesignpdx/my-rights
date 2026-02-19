@@ -9,6 +9,7 @@ export const es = {
     subheading: "Empodérate y protégete.",
   },
   group: {
+    id: "organizations",
     heading: "Organizaciones",
     orgs: [
       {
