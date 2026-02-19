@@ -4,7 +4,7 @@ import Hero from "@/components/hero.astro";
 import Nav from "@/components/nav.astro";
 import { type Language } from "@/constants/lang";
 import { getTranslations } from "@/i18n";
-import Resources from "./resources.astro";
+import Group from "./group.astro";
 import Footer from "./footer.astro";
 
 
@@ -37,5 +37,5 @@ const links = headings
 >
   <Content />
 </main>
-<Resources content={t.resources} />
+<Group content={t.group} />
 <Footer content={t.footer} />

@@ -8,8 +8,8 @@ export const en = {
     heading: "Know your rights.",
     subheading: "Empower and protect yourself.",
   },
-  resources: {
-    heading: "Resources",
+  group: {
+    heading: "Organizations",
     orgs: [
       {
         id: "aclu",
