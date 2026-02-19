@@ -1,17 +1,17 @@
 ---
+import { type Translations } from "@/i18n";
 import { Card } from "./card";
 
-import { type Translations } from "@/i18n";
 
 interface Props {
-  content: Translations["resources"];
+  content: Translations["group"];
 }
 
 const { content } = Astro.props;
 ---
 
 <section
-  id="resources"
+  id="organizations"
   class="wrap pt-16"
 >
   <h3 class="highlight text-3xl font-bold">
