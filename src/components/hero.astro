@@ -8,8 +8,8 @@ const { heading, subheading } = Astro.props;
 ---
 
 <header class="h-[50vh] flex items-center justify-start">
-  <hgroup class="wrap">
-    <h1 class="text-4xl md:text-5xl font-bold">{heading}</h1>
-    <p class="highlight text-4xl md:text-5xl font-bold">{subheading}</p>
+  <hgroup class="wrap @container">
+    <h1 class="display">{heading}</h1>
+    <p class="display highlight">{subheading}</p>
   </hgroup>
 </header>
