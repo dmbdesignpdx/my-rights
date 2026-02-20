@@ -9,7 +9,9 @@ export interface Props {
 const { content } = Astro.props;
 ---
 
-<footer class="bg-foreground mt-20 py-10 text-background">
+<footer 
+  class="py-10 mt-20 bg-foreground text-background dark:bg-foreground dark:text-background"
+>
   <div class="wrap flex flex-col gap-3">
     <p class="mt-4">{content.copy}</p>
     <address class="flex gap-3">
@@ -19,7 +21,7 @@ const { content } = Astro.props;
           href={link.href}
           target="_blank"
           rel="noreferrer noopener"
-          class="text-pink-200 underline underline-offset-2"
+          class="text-pink-200 underline underline-offset-2 dark:text-pink-400"
         >
           {link.label}
         </a>
@@ -36,7 +38,7 @@ const { content } = Astro.props;
         href={content.repo.link}
         target="_blank"
         rel="noreferrer noopener"
-        class="text-pink-200 underline underline-offset-2"
+        class="text-pink-200 underline underline-offset-2 dark:text-pink-400"
       >
         {content.repo.link}
       </a>

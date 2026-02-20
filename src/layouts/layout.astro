@@ -55,17 +55,24 @@ const t = getTranslations(locale);
   </head>
   <body>
     <slot />
-  </body>
-  <script>
-    // Listen for hash changes and scroll to the corresponding element
-    window.addEventListener("hashchange", () => {
-      const hash = window.location.hash;
-      if (hash) {
-        const target = document.querySelector(hash);
-        if (target) {
-          target.scrollIntoView();
-        }
+    <script is:inline>
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+      function setClass(e) {
+        document.body.classList.toggle("dark", e.matches);
       }
-    });
-  </script>
+      setClass(prefersDark);
+      prefersDark.addEventListener("change", setClass);
+    </script>
+    <script>
+      window.addEventListener("hashchange", () => {
+        const hash = window.location.hash;
+        if (hash) {
+          const target = document.querySelector(hash);
+          if (target) {
+            target.scrollIntoView();
+          }
+        }
+      });
+    </script>
+  </body>
 </html>

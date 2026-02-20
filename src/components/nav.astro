@@ -17,7 +17,9 @@ const options = [
 ];
 ---
 
-<nav class="fixed w-full bg-background z-10 py-1 top-0 border-b border-gray-200">
+<nav 
+  class="w-full py-1 fixed top-0 z-10 bg-background border-b border-zinc-200 dark:border-zinc-700"
+>
   <div class="wrap flex justify-between items-center">
     <SiteDrawer links={links} client:load />
     <Select
