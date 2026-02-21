@@ -3,6 +3,7 @@ import { useState } from "react";
 import { PiX, PiList } from "react-icons/pi";
 
 // Ours
+import { type Link } from "@/types/main.d";
 import {
   Drawer,
   DrawerClose,
@@ -17,7 +18,7 @@ import { Button } from "@/components/ui/button";
 
 
 interface Props {
-  links: { label: string, href: string, id: string }[]
+  links: Link[]
 }
 
 

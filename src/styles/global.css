@@ -3,20 +3,6 @@
 @import "shadcn/tailwind.css";
 @plugin '@tailwindcss/typography';
 
-@font-face {
-  font-family: 'PublicSans';
-  src: url('/fonts/public-sans-400.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'PublicSans';
-  src: url('/fonts/public-sans-800.woff2') format('woff2');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
 
 @utility highlight {
   @apply bg-linear-45 to-purple-500 to-95% from-pink-500 from-5% bg-clip-text text-transparent box-decoration-clone w-fit;
@@ -127,6 +113,20 @@
 }
 
 @layer base {
+  @font-face {
+    font-family: 'PublicSans';
+    src: url('/fonts/public-sans-400.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'PublicSans';
+    src: url('/fonts/public-sans-800.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
   * {
     @apply border-border outline-ring/50;
   }
