@@ -19,11 +19,15 @@
 }
 
 @utility highlight {
-  @apply bg-linear-45 to-purple-500 to-95% from-pink-500 from-5% bg-clip-text text-transparent box-decoration-clone w-fit text-balance;
+  @apply bg-linear-45 to-purple-500 to-95% from-pink-500 from-5% bg-clip-text text-transparent box-decoration-clone w-fit;
 }
 
 @utility wrap {
-  @apply max-w-3xl mx-auto px-4;
+  @apply w-full max-w-3xl mx-auto px-4;
+}
+
+@utility display {
+  @apply text-[clamp(2.25rem,0.342rem+8.142cqi,4.25rem)] font-bold leading-tight;
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -131,8 +135,7 @@
     scroll-padding-top: 4.5rem;
   }
   body {
-    @apply bg-background text-foreground;
-    width: 100vi;
+    @apply bg-background text-foreground w-dvw;
   }
   h1, 
   h2, 
