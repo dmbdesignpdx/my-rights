@@ -1,8 +1,11 @@
 ---
-import { type Language, STATIC_PATHS } from "@/constants/lang";
-import Error from "@/layouts/error.astro";
-import { getTranslations } from "@/i18n";
+// Theirs
 import { getRelativeLocaleUrl } from "astro:i18n";
+
+// Ours
+import { type Language, STATIC_PATHS } from "@/constants/lang";
+import { getTranslations } from "@/i18n";
+import Error from "@/layouts/error.astro";
 
 
 export function getStaticPaths() {
