@@ -33,7 +33,7 @@ export function SiteDrawer({ links }: Props) {
     >
       <DrawerTrigger asChild>
         <Button
-          className="min-h-11 min-w-11 relative -start-3"
+          className="relative -start-3 min-h-11 min-w-11"
           variant="ghost"
           aria-label="open"
         >
@@ -54,7 +54,7 @@ export function SiteDrawer({ links }: Props) {
             >
               <Button
                 asChild
-                className="justify-start min-h-11"
+                className="min-h-11 justify-start"
                 variant="ghost"
                 size="lg"
               >
@@ -70,7 +70,7 @@ export function SiteDrawer({ links }: Props) {
           <DrawerClose asChild>
             <Button
               variant="ghost"
-              className="self-center min-h-11 min-w-11"
+              className="min-h-11 min-w-11 self-center"
               size="lg"
               aria-label="close"
             >

@@ -7,9 +7,9 @@ export interface Props {
 const { heading, subheading } = Astro.props;
 ---
 
-<header class="h-[50vh] flex items-center justify-start">
-  <hgroup class="wrap @container">
+<header class="flex h-[50vh] items-center justify-start">
+  <hgroup class="@container wrap">
     <h1 class="display">{heading}</h1>
-    <p class="display highlight">{subheading}</p>
+    <p class="highlight display">{subheading}</p>
   </hgroup>
 </header>

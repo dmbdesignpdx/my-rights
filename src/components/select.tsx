@@ -31,11 +31,11 @@ export function Select({ locale, options }: Props) {
       value={current?.value}
       onValueChange={navigate}
     >
-      <SelectTrigger className="w-16 min-h-11">
+      <SelectTrigger className="min-h-11 w-16">
         <SelectValue>{current?.label}</SelectValue>
       </SelectTrigger>
       <SelectContent
-        className="min-w-none"
+        className="min-w-0"
         position="popper"
       >
         <SelectGroup>

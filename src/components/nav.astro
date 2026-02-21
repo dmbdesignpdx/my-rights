@@ -17,10 +17,13 @@ const options = [
 ];
 ---
 
-<nav 
-  class="w-full py-1 fixed top-0 z-10 bg-background border-b border-zinc-200 dark:border-zinc-700"
+<nav
+  class="
+    fixed top-0 z-10 w-full border-b border-zinc-200 bg-background py-1
+    dark:border-zinc-700
+  "
 >
-  <div class="wrap flex justify-between items-center">
+  <div class="wrap flex items-center justify-between">
     <SiteDrawer links={links} client:load />
     <Select
       locale={locale}
