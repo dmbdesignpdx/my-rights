@@ -4,7 +4,8 @@ import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
 import stylistic from "@stylistic/eslint-plugin";
 import astro from "eslint-plugin-astro";
-
+import tailwind from "eslint-plugin-better-tailwindcss";
+import astroParser from "astro-eslint-parser";
 
 export default defineConfig([
   {
@@ -21,6 +22,33 @@ export default defineConfig([
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   ...astro.configs.recommended,
+  {
+    extends: [
+      tailwind.configs.recommended,
+    ],
+    settings: {
+      "better-tailwindcss": {
+        entryPoint: "./src/styles/global.css",
+      },
+    },
+  },
+  {
+    files: ["**/*.astro"],
+    extends: [
+      tailwind.configs.recommended,
+    ],
+    languageOptions: {
+      parser: astroParser,
+      parserOptions: {
+        parser: tseslint.parser,
+      },
+    },
+    settings: {
+      "better-tailwindcss": {
+        entryPoint: "./src/styles/global.css",
+      },
+    },
+  },
   {
     plugins: {
       "@stylistic": stylistic,
@@ -43,4 +71,3 @@ export default defineConfig([
     },
   },
 ]);
-
