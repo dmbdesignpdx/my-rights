@@ -73,5 +73,6 @@ export const en = {
     menu: "Menu",
     open: "Open",
     close: "Close",
+    select: "Select language",
   },
 };

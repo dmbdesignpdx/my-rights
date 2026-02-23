@@ -1,4 +1,6 @@
 // Ours
+import { type Language } from "@/constants/lang";
+import { getTranslations } from "@/i18n";
 import {
   Select as ChakraSelect,
   SelectContent,
@@ -10,12 +12,14 @@ import {
 
 
 interface Props {
-  locale: string;
+  locale: Language;
   options: { label: string, value: string, id: string }[]
 }
 
 
 export function Select({ locale, options }: Props) {
+  const t = getTranslations(locale);
+
   const getCurrent = (id: string) => {
     return options.find((item) => item.id === id);
   };
@@ -31,7 +35,10 @@ export function Select({ locale, options }: Props) {
       value={current?.value}
       onValueChange={navigate}
     >
-      <SelectTrigger className="min-h-11 w-16">
+      <SelectTrigger
+        className="min-h-11 w-16"
+        aria-label={t.label.select}
+      >
         <SelectValue>{current?.label}</SelectValue>
       </SelectTrigger>
       <SelectContent

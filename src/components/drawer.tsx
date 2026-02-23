@@ -4,6 +4,7 @@ import { PiX, PiList } from "react-icons/pi";
 
 // Ours
 import { type Link } from "@/types/main.d";
+import { type Language } from "@/constants/lang";
 import {
   Drawer,
   DrawerClose,
@@ -15,15 +16,18 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
+import { getTranslations } from "@/i18n";
 
 
 interface Props {
-  links: Link[]
+  locale: Language;
+  links: Link[];
 }
 
 
-export function SiteDrawer({ links }: Props) {
+export function SiteDrawer({ links, locale }: Props) {
   const [open, setOpen] = useState(false);
+  const t = getTranslations(locale);
 
   return (
     <Drawer
@@ -36,7 +40,7 @@ export function SiteDrawer({ links }: Props) {
         <Button
           className="relative -start-3 min-h-11 min-w-11"
           variant="ghost"
-          aria-label="open"
+          aria-label={t.label.open}
         >
           <PiList className="size-5" />
         </Button>
@@ -73,7 +77,7 @@ export function SiteDrawer({ links }: Props) {
               variant="ghost"
               className="min-h-11 min-w-11 self-center"
               size="lg"
-              aria-label="close"
+              aria-label={t.label.close}
             >
               <PiX className="size-5" />
             </Button>

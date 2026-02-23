@@ -3,12 +3,13 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 
 // Ours
+import { type Language } from "@/constants/lang";
 import { Select } from "@/components/select";
 import { SiteDrawer } from "@/components/drawer";
 
 
 interface Props {
-  locale: string;
+  locale: Language;
   links: { label: string, href: string, id: string }[]
 }
 
@@ -24,11 +25,15 @@ const options = [
   class="fixed top-0 z-10 w-full border-b border-border bg-background py-1"
 >
   <div class="wrap flex items-center justify-between">
-    <SiteDrawer links={links} client:load />
+    <SiteDrawer
+      locale={locale}
+      links={links}
+      client:idle
+    />
     <Select
       locale={locale}
       options={options}
-      client:load
+      client:visible
     />
   </div>
 </nav>

@@ -4,7 +4,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@astrojs/react";
-import playformInline from "@playform/inline";
+import critters from "@critters-rs/astro";
 
 
 export default defineConfig({
@@ -18,12 +18,10 @@ export default defineConfig({
   integrations: [
     react(),
     mdx(),
-    playformInline({
-      Beasties: {
-        fonts: false,
-        inlineFonts: false,
-        preloadFonts: false,
-      },
+    critters({
+      inlineFonts: false,
+      preloadFonts: false,
+      pruneSource: true,
     }),
   ],
   i18n: {
