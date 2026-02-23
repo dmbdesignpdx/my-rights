@@ -20,7 +20,6 @@
 
 @theme inline {
   --outline: oklch(1 0 0 / 12%);
-
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -127,20 +126,6 @@
 }
 
 @layer base {
-  @font-face {
-    font-family: 'PublicSans';
-    src: url('/fonts/public-sans-400.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'PublicSans';
-    src: url('/fonts/public-sans-800.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-  }
   * {
     @apply border-border outline-ring/50;
   }

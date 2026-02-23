@@ -18,7 +18,13 @@ export default defineConfig({
   integrations: [
     react(),
     mdx(),
-    playformInline(),
+    playformInline({
+      Beasties: {
+        fonts: false,
+        inlineFonts: false,
+        preloadFonts: false,
+      },
+    }),
   ],
   i18n: {
     locales: ["es", "en"],
