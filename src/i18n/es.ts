@@ -43,7 +43,7 @@ export const es = {
     ],
   },
   footer: {
-    disclaimer: "No soy abogado, y esto no constituye asesoramiento legal. Para obtener más información, consulte con un abogado o una organización especializada. La mayor parte del texto utilizado proviene del sitio web de la ACLU; le recomiendo visitar su página web para obtener más información.",
+    disclaimer: "No soy abogado. Esto no constituye asesoramiento legal. Consulte con un abogado cualificado para obtener la asesoría legal que le corresponda. Este es solo un recurso para ayudarle a comprender sus derechos al interactuar con agentes federales y las fuerzas del orden.",
     copy: "Hecho con 🦄🌈 por Daniel Blake.",
     repo: {
       text: "Próximamente habrá más. Puedes seguir o reportar errores de este proyecto en:",

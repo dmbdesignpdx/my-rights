@@ -43,7 +43,7 @@ export const en = {
     ],
   },
   footer: {
-    disclaimer: "I am not a lawyer, this is not legal adivce. For more information, please consult a qualified attorney or organization. A majority of the text used is from the ACLU website, I reccommend visiting their website for more information.",
+    disclaimer: "I am not a lawyer. This is not legal adivce. Please consult a qualified attorney for legal advice that applies to you. This is just a resource to help you understand your rights when interacting with federal agents and law enforcement.",
     copy: "Made with 🦄🌈 by Daniel Blake.",
     repo: {
       text: "More to come. You can follow or report bugs of this project at:",
