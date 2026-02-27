@@ -5,7 +5,7 @@ import mdx from "@astrojs/mdx";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@astrojs/react";
 import critters from "@critters-rs/astro";
-
+import normalize from "./plugins/normalize";
 
 export default defineConfig({
   site: Url.BASE,
@@ -30,5 +30,8 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false,
     },
+  },
+  markdown: {
+    remarkPlugins: [normalize],
   },
 });
