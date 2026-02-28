@@ -2,7 +2,7 @@
   "name": "my-rights",
   "description": "A simple source for people to use to understand their rights when interacting with law enforcement in the United States.",
   "type": "module",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "private": true,
   "scripts": {
     "dev": "astro dev",
