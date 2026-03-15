@@ -1,4 +1,4 @@
-import { type Language } from "@/constants/lang";
+import { type LanguageCode } from "@/constants/lang";
 import { en } from "./en";
 import { es } from "./es";
 
@@ -8,8 +8,8 @@ const content = {
   es,
 };
 
-export type Translations = typeof content[keyof typeof content];
+export type Translations = typeof en;
 
-export function getTranslations(lang: Language): Translations {
+export function getTranslations(lang: LanguageCode): Translations {
   return content[lang];
 }

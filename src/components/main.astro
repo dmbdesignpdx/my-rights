@@ -3,35 +3,29 @@
 import { getEntry, render } from "astro:content";
 
 // Ours
-import { type Language } from "@/constants/lang";
+import { type LanguageCode } from "@/constants/lang";
 import { getTranslations } from "@/i18n";
 import { generateLinks } from "@/lib/links";
 import Hero from "@/components/hero.astro";
 import Nav from "@/components/nav.astro";
-import Group from "@/components/group.astro";
 import Footer from "@/components/footer.astro";
+import Resources from "@/components/resources.astro";
 
 
-interface Props {
-  locale: Language;
-}
-
-const { locale } = Astro.props;
+const locale = Astro.currentLocale as LanguageCode;
 const entry = await getEntry("content", locale);
 
 if (!entry) return null;
 
 const { Content, headings } = await render(entry);
 const t = getTranslations(locale);
-const extraHeadings = [{ heading: t.group.heading, id: t.group.id }];
+const extraHeadings = [{ heading: t.resources.heading, id: t.resources.id }];
 const links = generateLinks(headings, extraHeadings);
 ---
 
-<Hero
-  heading={t.hero.heading}
-  subheading={t.hero.subheading}
-/>
-<Nav locale={locale} links={links} />
+
+<Hero content={t.hero} />
+<Nav links={links} />
 <main
   class="
     wrap prose prose-lg max-w-3xl prose-zinc
@@ -42,5 +36,5 @@ const links = generateLinks(headings, extraHeadings);
 >
   <Content />
 </main>
-<Group content={t.group} />
+<Resources content={t.resources} />
 <Footer content={t.footer} />

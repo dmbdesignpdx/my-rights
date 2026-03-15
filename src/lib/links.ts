@@ -7,6 +7,7 @@ interface Extra {
   id: string;
 }
 
+
 export function generateLinks(headings: MarkdownHeading[], extra?: Extra[]): Link[] {
   const initLinks: Link[] = headings
     .filter(item => item.depth === 2)

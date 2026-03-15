@@ -1,15 +1,18 @@
 ---
+// Ours
+import { type Translations } from "@/i18n";
+
+
 export interface Props {
-  heading: string;
-  subheading: string;
+  content: Translations["hero"];
 }
 
-const { heading, subheading } = Astro.props;
+const { content } = Astro.props;
 ---
 
 <header class="flex h-[54vh] items-center justify-start contain-strict">
   <hgroup class="@container wrap mt-7">
-    <h1 class="display">{heading}</h1>
-    <p class="highlight display">{subheading}</p>
+    <h1 class="display">{content.heading}</h1>
+    <p class="highlight display">{content.subheading}</p>
   </hgroup>
 </header>

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@plugin '@tailwindcss/typography';
+@plugin "@tailwindcss/typography";
 
 
 @utility highlight {
@@ -14,6 +14,10 @@
 
 @utility display {
   @apply text-[clamp(2.25rem,0.342rem+8.142cqi,4.25rem)] font-bold leading-tight;
+}
+
+@utility trim {
+  text-box: trim-both cap alphabetic;
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -116,7 +120,7 @@
   --input: var(--outline);
   --ring: var(--color-zinc-500);
   --sidebar: var(--color-zinc-900);
-  --sidebar-foreground: var(--color-zinc-800);
+  --sidebar-foreground: var(--color-zinc-50);
   --sidebar-primary: var(--color-zinc-200);
   --sidebar-primary-foreground: var(--color-zinc-50);
   --sidebar-accent: var(--color-zinc-800);

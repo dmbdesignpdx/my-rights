@@ -5,31 +5,26 @@ import { Card } from "@/components/card";
 
 
 interface Props {
-  content: Translations["group"];
+  content: Translations["resources"]["section"]["orgs"];
 }
 
 const { content } = Astro.props;
 ---
 
-<section
-  id={content.id}
-  class="wrap pt-16"
->
-  <h3 class="highlight text-3xl font-bold">
+
+<section class="mt-24">
+  <h3 class="text-2xl font-bold trim">
     {content.heading}
   </h3>
-  <div class="
-    mt-4 grid grid-cols-1 gap-6
-    md:grid-cols-2
-  ">
+  <div
+    class="
+      mt-6 grid grid-cols-1 gap-6
+      md:grid-cols-2
+    "
+  >
 
-    {content.orgs.map(org => (
-      <Card
-        heading={org.heading}
-        copy={org.copy}
-        link={org.link}
-        label={org.label}
-      />
+    {content.list.map(org => (
+      <Card {...org} />
     ))}
 
   </div>

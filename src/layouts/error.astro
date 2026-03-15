@@ -1,14 +1,14 @@
 ---
 // Ours
-import { type Language } from "@/constants/lang";
+import { type LanguageCode } from "@/constants/lang";
 
 
 interface Props {
-  locale: Language;
   title: string;
 }
 
-const { locale, title } = Astro.props;
+const { title } = Astro.props;
+const locale = Astro.currentLocale as LanguageCode;
 ---
 
 <!doctype html>

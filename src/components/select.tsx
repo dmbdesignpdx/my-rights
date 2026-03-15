@@ -1,8 +1,8 @@
 // Ours
-import { type Language } from "@/constants/lang";
+import { type LanguageCode } from "@/constants/lang";
 import { getTranslations } from "@/i18n";
 import {
-  Select as ChakraSelect,
+  Select as ShadcnSelect,
   SelectContent,
   SelectItem,
   SelectTrigger,
@@ -12,34 +12,33 @@ import {
 
 
 interface Props {
-  locale: Language;
-  options: { label: string, value: string, id: string }[]
+  locale: LanguageCode;
+  options: { value: string, id: string }[]
 }
 
 
 export function Select({ locale, options }: Props) {
   const t = getTranslations(locale);
 
-  const getCurrent = (id: string) => {
-    return options.find((item) => item.id === id);
+  function getCurrent(id: string) {
+    const current = options.find((item) => item.id === id);
+    return current?.id.toLocaleUpperCase() || "EN";
   };
-
-  const current = getCurrent(locale);
 
   function navigate(e: string) {
     window.location.href = e;
   }
 
   return (
-    <ChakraSelect
-      value={current?.value}
+    <ShadcnSelect
+      value={getCurrent(locale)}
       onValueChange={navigate}
     >
       <SelectTrigger
         className="min-h-11 w-16"
         aria-label={t.label.select}
       >
-        <SelectValue>{current?.label}</SelectValue>
+        <SelectValue>{getCurrent(locale)}</SelectValue>
       </SelectTrigger>
       <SelectContent
         className="min-w-0"
@@ -50,14 +49,14 @@ export function Select({ locale, options }: Props) {
           {options.map((item) => (
             <SelectItem
               value={item.value}
-              key={item.label}
+              key={item.id}
             >
-              {item.label}
+              {item.id.toLocaleUpperCase()}
             </SelectItem>
           ))}
 
         </SelectGroup>
       </SelectContent>
-    </ChakraSelect>
+    </ShadcnSelect>
   );
 }

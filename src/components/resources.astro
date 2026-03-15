@@ -1,0 +1,44 @@
+---
+// Ours
+import { type Translations } from "@/i18n";
+import { supabase } from "@/lib/supabase";
+import { SearchSelect } from "@/components/search";
+import Group from "@/components/group.astro";
+import List from "@/components/list.astro";
+
+
+interface Props {
+  content: Translations["resources"];
+}
+
+const { content } = Astro.props;
+
+const { data } = await supabase.from("community").select();
+const cities = data
+  ?.map(item => item.city + ", " + item.state)
+  .sort((a,b) => a.localeCompare(b))
+  || [];
+---
+
+
+<section
+  class="wrap mt-20"
+  id={content.id}
+>
+  <h2 class="highlight text-4xl font-bold trim">{content.heading}</h2>
+  <SearchSelect
+    items={cities}
+    content={content.section.local}
+    client:visible
+  />
+  <Group content={content.section.orgs} />
+  <div
+    class="
+      grid gap-x-8
+      md:grid-cols-2
+    "
+  >
+    <List {...content.section.materials} />
+    <List {...content.section.legal} />
+  </div>
+</section>

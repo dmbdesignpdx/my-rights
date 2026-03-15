@@ -10,10 +10,11 @@ export interface Props {
 const { content } = Astro.props;
 ---
 
+
 <footer
   class="
     mt-20 bg-foreground py-10 text-background
-    dark:bg-foreground dark:text-background
+    dark:bg-sidebar dark:text-sidebar-foreground
   "
 >
   <div class="wrap flex flex-col gap-3">
@@ -22,13 +23,13 @@ const { content } = Astro.props;
 
       {content.links.map(link => (
         <a
-          href={link.href}
-          target="_blank"
-          rel="noreferrer noopener"
           class="
             text-pink-200 underline underline-offset-2
             dark:text-pink-400
           "
+          href={link.href}
+          target="_blank"
+          rel="noreferrer noopener"
         >
           {link.label}
         </a>
@@ -42,13 +43,13 @@ const { content } = Astro.props;
       {content.repo.text}
       {" "}
       <a
-        href={content.repo.link}
-        target="_blank"
-        rel="noreferrer noopener"
         class="
           text-pink-200 underline underline-offset-2
           dark:text-pink-400
         "
+        href={content.repo.link}
+        target="_blank"
+        rel="noreferrer noopener"
       >
         {content.repo.link}
       </a>

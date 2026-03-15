@@ -1,18 +1,16 @@
 ---
 // Ours
-import { type Language } from "@/constants/lang";
-import { STATIC_PATHS } from "@/constants/lang";
+import { ALT_LANGUAGES } from "@/constants/lang";
 import Layout from "@/layouts/layout.astro";
 import Main from "@/components/main.astro";
 
 
 export function getStaticPaths() {
-  return STATIC_PATHS;
+  return ALT_LANGUAGES.map((lang) => ({ params: { locale: lang } }));
 }
-
-const locale = Astro.params.locale as Language;
 ---
 
-<Layout locale={locale}>
-  <Main locale={locale} />
+
+<Layout>
+  <Main />
 </Layout>

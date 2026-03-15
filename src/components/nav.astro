@@ -3,25 +3,27 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 
 // Ours
-import { type Language } from "@/constants/lang";
+import { type Link } from "@/types/main.d";
+import { type LanguageCode, LANGUAGES } from "@/constants/lang";
 import { Select } from "@/components/select";
 import { SiteDrawer } from "@/components/drawer";
 
 
 interface Props {
-  locale: Language;
-  links: { label: string, href: string, id: string }[]
+  links: Link[]
 }
 
-const { locale, links } = Astro.props;
+const { links } = Astro.props;
+const locale = Astro.currentLocale as LanguageCode;
 
-const options = [
-  { id: "en", label: "EN", value: getRelativeLocaleUrl("en", "/") },
-  { id: "es", label: "ES", value: getRelativeLocaleUrl("es", "/") },
-];
+const options = LANGUAGES.map(lang => ({
+  id: lang,
+  value: getRelativeLocaleUrl(lang, "/"),
+}));
 ---
 
 <nav
+  data-label="Page Navigation"
   class="fixed top-0 z-10 w-full border-b border-border bg-background"
 >
   <div class="wrap flex h-14 items-center justify-between">

@@ -1,6 +1,6 @@
 ---
 // Ours
-import { type Language } from "@/constants/lang";
+import { type LanguageCode } from "@/constants/lang";
 import { OpenGraph, AppleApp, Meta } from "@/constants/meta";
 import { getTranslations } from "@/i18n";
 
@@ -8,11 +8,7 @@ import { getTranslations } from "@/i18n";
 import "../styles/global.css";
 
 
-interface Props {
-  locale: Language;
-}
-
-const { locale } = Astro.props;
+const locale = Astro.currentLocale as LanguageCode;
 const t = getTranslations(locale);
 ---
 

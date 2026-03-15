@@ -4,7 +4,8 @@ import { PiX, PiList } from "react-icons/pi";
 
 // Ours
 import { type Link } from "@/types/main.d";
-import { type Language } from "@/constants/lang";
+import { type LanguageCode } from "@/constants/lang";
+import { getTranslations } from "@/i18n";
 import {
   Drawer,
   DrawerClose,
@@ -16,11 +17,10 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
-import { getTranslations } from "@/i18n";
 
 
 interface Props {
-  locale: Language;
+  locale: LanguageCode;
   links: Link[];
 }
 
@@ -38,17 +38,19 @@ export function SiteDrawer({ links, locale }: Props) {
     >
       <DrawerTrigger asChild>
         <Button
-          className="relative -start-3 min-h-11 min-w-11"
+          className="relative -inset-s-3 min-h-11 min-w-11"
           variant="ghost"
           aria-label={t.label.open}
+          aria-controls="site-drawer"
+          aria-expanded={open}
         >
           <PiList className="size-5" />
         </Button>
       </DrawerTrigger>
-      <DrawerContent>
+      <DrawerContent id="site-drawer">
         <DrawerHeader className="sr-only">
-          <DrawerTitle>Menu</DrawerTitle>
-          <DrawerDescription>Menu</DrawerDescription>
+          <DrawerTitle>{t.label.menu}</DrawerTitle>
+          <DrawerDescription>{t.label.menu}</DrawerDescription>
         </DrawerHeader>
         <div className="flex flex-col p-6">
 
@@ -78,6 +80,8 @@ export function SiteDrawer({ links, locale }: Props) {
               className="min-h-11 min-w-11 self-center"
               size="lg"
               aria-label={t.label.close}
+              aria-controls="site-drawer"
+              aria-expanded={open}
             >
               <PiX className="size-5" />
             </Button>
