@@ -6,11 +6,12 @@ A project to help users understand their rights when encountering federal agents
 
 ## Tech
 
-- [Bun](https://bun.sh)
-- [Astro](https://astro.build)
-- [Shadcn UI](https://ui.shadcn.com)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Netlify](https://netlify.com)
+- [Bun](https://bun.sh) - Package manager and runtime
+- [Astro](https://astro.build) - Frontend framework
+- [Shadcn UI](https://ui.shadcn.com) - Component library
+- [Tailwind CSS](https://tailwindcss.com) - Styles framework
+- [Netlify](https://netlify.com) - Web platform and backend
+- [Supabase](https://supabase.com) - Database
 
 ## Getting Started
 
@@ -27,3 +28,6 @@ bun run dev
 ```
 
 Open [http://localhost:3000](http://localhost:4321) with your browser to see the result.
+
+> [!NOTE]
+> You will need a Supabase key to perform queries; you will need to contact me for credentials.
