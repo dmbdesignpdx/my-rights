@@ -1,6 +1,7 @@
 ---
 // Ours
 import { type Translations } from "@/i18n";
+import Link from "@/components/link.astro";
 
 
 export interface Props {
@@ -22,17 +23,7 @@ const { content } = Astro.props;
     <address class="flex gap-3">
 
       {content.links.map(link => (
-        <a
-          class="
-            text-pink-200 underline underline-offset-2
-            dark:text-pink-400
-          "
-          href={link.href}
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          {link.label}
-        </a>
+        <Link href={link.href}>{link.label}</Link>
       ))}
 
     </address>
@@ -42,17 +33,7 @@ const { content } = Astro.props;
     <p>
       {content.repo.text}
       {" "}
-      <a
-        class="
-          text-pink-200 underline underline-offset-2
-          dark:text-pink-400
-        "
-        href={content.repo.link}
-        target="_blank"
-        rel="noreferrer noopener"
-      >
-        {content.repo.link}
-      </a>
+      <Link href={content.repo.link}>{content.repo.link}</Link>
     </p>
   </div>
 </footer>
