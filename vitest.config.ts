@@ -1,12 +1,14 @@
-/// <reference types="vitest/config" />
 import { getViteConfig } from "astro/config";
+import { type InlineConfig } from "vitest/node";
 
-export default getViteConfig({
-  test: {
-    setupFiles: ["./src/tests/_setup.ts"],
-    environment: "happy-dom",
-    alias: {
-      "@": "/src",
-    },
+const test = {
+  setupFiles: ["./src/tests/_setup.ts"],
+  environment: "node",
+  alias: {
+    "@": "/src",
   },
-});
+} satisfies InlineConfig;
+
+const config: Parameters<typeof getViteConfig>[0] & { test: InlineConfig } = { test };
+
+export default getViteConfig(config);
